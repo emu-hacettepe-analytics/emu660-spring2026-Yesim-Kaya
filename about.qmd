@@ -3,38 +3,37 @@ title: "About Me"
 sidebar: false 
 ---
 
-![](assets/images/vesikalik.jpeg){fig-align="center"}
+![](assets/images/yesimfoto.jpeg){fig-align="center" width="200"}
 
-# Education
+# Education 
 
--   B.S., ................................., ....................................University, Turkey, 20xx - 20xx.
--   M.S., Industrial Engineering, Hacettepe University, Turkey, 20xx - ongoing.
--   Ph.D.., Industrial Engineering, Hacettepe University, Turkey, 20xx - ongoing.
-
-# Work Experience
+-   B.S., Industrial Engineering, Eskisehir Osmangazi University, Turkey, 2011 - 2018.
+-   M.S., Industrial Engineering, Hacettepe University, Turkey, 2026 - ongoing.
 
 ## Employements
 
-1.  Firm xxx, position xx, year xxx
-
-2.  Firm yyy, position yyy, year yyy
+1.  Ministry of Health, Industrial Engineer, 2020-ongoing.
 
 ## Internships
 
-1.  Firm aaa, position xx, year xxx
+1.  TULOMSAS, Intern in Production Planning, 2013
 
-2.  Firm bbb, position yyy, year yyy
+2.  Ford Otosan, Intern in Production Planning, 2016
 
-# Projects
-
-1.  TUBİTAK 1001..........................
-
-# Publications
-
-1.  Dasdemir, E., Batta, R., Koksalan, M., Tezcaner Ozturk, D. (2022) “UAV Routing for Reconnaissance Mission: A Multi-Objective Orienteering Problem with Time-Dependent Prizes and Multiple Connections”, Computers & Operations Research, 145: 105882.
+3.  Bisteks Textil, Intern in Marketing Management, 2017
 
 # Competencies
 
-R, Quarto, Git, Python
+Minitab, R, Quarto., Git, Github
 
-# Hobbies
+# I Enjoy
+
+![Skiing](assets/images/kayakgif.gif){width="50"} Skiing
+
+![Tennis](assets/images/tenisgif.gif){width="50"} playing tennis
+
+![Dancing](assets/images/dansgif.gif){width="50"} Dancing
+
+# Links
+
+[CV](assets/cv_dosyan.pdf)

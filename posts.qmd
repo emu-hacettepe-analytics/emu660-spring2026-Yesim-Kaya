@@ -1,6 +1,6 @@
----
-title: "My Blog"
-sidebar: false 
----
+|                  |
+|------------------|
+| title: "My Blog" |
+| sidebar: false   |
 
 This page is under construction.
