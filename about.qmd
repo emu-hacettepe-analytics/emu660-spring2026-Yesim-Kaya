@@ -36,4 +36,4 @@ Minitab, R, Quarto., Git, Github
 
 # Links
 
-[CV](assets/CV.docx)
+[CV]([CV] (assets/CV.pdf))
