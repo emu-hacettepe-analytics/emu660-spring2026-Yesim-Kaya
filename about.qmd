@@ -3,7 +3,7 @@ title: "About Me"
 sidebar: false 
 ---
 
-![](assets/images/yesimfoto.jpg){fig-align="center" width="230"}
+![](assets/images/yesimfoto.jpeg){fig-align="left" width="203"}
 
 # Education
 
