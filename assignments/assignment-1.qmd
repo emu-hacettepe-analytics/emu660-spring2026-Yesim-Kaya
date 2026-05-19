@@ -1,15 +1,182 @@
 ---
 title: "Assignment 1"
+author: "Yeşim Kaya"
+format: html
 ---
 
 # Assignment 1
 
+My first assignment has four parts.
+
+## (a) Video Summary
+
+I watched the video titled **"Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler - Kerem Demirtaş & Erdi Dasdemir"**.
+
+In this video, the connection between data science and industrial engineering is explored. The conversation centers around how industrial engineers can take advantage of data-driven decision-making, statistical thinking, optimization, and analytical approaches. It also highlights that data science is growing in importance within business settings, as companies need to make quicker and more precise decisions based on data.
+
+The core message of the video is that industrial engineering and data science are two deeply connected fields. Industrial engineers can leverage data science tools to analyze complex systems, improve processes, support decision-making, and develop more efficient solutions.
+
+## (b) Questions Based on the Video
+
+### Open-ended Question
+
+**Question:**\
+Why is data science important for industrial engineers?
+
+Answer: Data science matters for industrial engineers because it allows them to analyze complex systems, recognize patterns in data, and arrive at better decisions. Industrial engineers regularly deal with production planning, optimization, process improvement, quality control, and decision-making challenges. Data science strengthens these areas by offering tools for data analysis, prediction, visualization, and evidence-based problem solving.
+
+### Multiple-choice Question
+
+**Question:**\
+Which of the following best explains the relationship between industrial engineering and data science?
+
+A. Industrial engineering and data science are entirely separate fields.
+
+B. Data science is solely concerned with software development and has no relevance to industrial engineering.
+
+C. Both fields rely on analytical thinking and data to improve systems and guide decision-making.
+
+D. Industrial engineers should stay away from using data when tackling real-world problems.
+
+**Correct Answer:** C. Both fields rely on analytical thinking and data to improve systems and guide decision-making.
+
+## (c) Statistical Summaries with Custom Functions and Iteration Methods
+
+In this section, I use the built-in `mtcars` dataset in R. The dataset contains measurements for 32 cars and 11 variables.
+
 ```{r}
-1 + 1
+data(mtcars)
+
+head(mtcars)
 ```
 
-My first assignment has two parts.
+### Custom Summary Function
 
-## (a)
+The following function, named `compute_stats`, takes a numeric vector as input and returns a named list containing the mean, median, variance, interquartile range, minimum, and maximum.
 
-## (b)
+```{r}
+compute_stats <- function(x) {
+  list(
+    mean = mean(x),
+    median = median(x),
+    variance = var(x),
+    IQR = IQR(x),
+    minimum = min(x),
+    maximum = max(x)
+  )
+}
+```
+
+### Applying the Function Using a For Loop
+
+In this part, I use a `for` loop to iterate over all numerical columns of the `mtcars` dataset. For each column, I apply the `compute_stats` function and print the column name together with the calculated statistics.
+
+```{r}
+for (col_name in names(mtcars)) {
+  cat("\nColumn:", col_name, "\n")
+  print(compute_stats(mtcars[[col_name]]))
+}
+```
+
+### Applying the Function Using sapply
+
+Instead of relying on a loop, I applied the `compute_stats` function across all columns using `sapply`.
+
+```{r}
+sapply(mtcars, compute_stats)
+```
+
+### Applying the Function Using apply
+
+For the `apply` function, I first convert the `mtcars` data frame into a matrix. Then I use margin `2` because the function should be applied column-wise.
+
+```{r}
+mtcars_matrix <- as.matrix(mtcars)
+
+apply(mtcars_matrix, 2, compute_stats) 
+```
+
+## (d) Working with `polls_us_election_2016` Dataset
+
+In this section, I use the `polls_us_election_2016` dataset from the `dslabs` package.
+
+```{r}
+library(dslabs)
+
+data("polls_us_election_2016")
+polls_data <- polls_us_election_2016
+```
+
+### Defining Personal Variables and Calculating k
+
+```{r}
+my_first <- "Yesim"
+my_birth_year <- 1992
+
+k <- (nchar(my_first) + my_birth_year) %% 15 + 8
+k
+```
+
+### Displaying k Rows from the Original Dataset
+
+```{r}
+if (k %% 2 == 0) {
+  head(polls_data, k)
+} else {
+  tail(polls_data, k)
+}
+```
+
+### Missing Values in the Original Dataset
+
+```{r}
+total_na <- sum(is.na(polls_data))
+total_na
+```
+
+```{r}
+na_per_column <- sort(colSums(is.na(polls_data)), decreasing = TRUE)
+head(na_per_column, 8)
+```
+
+### Replacing Missing Values
+
+```{r}
+new_data <- polls_data
+
+for (col_name in names(new_data)) {
+  
+  if (is.numeric(new_data[[col_name]])) {
+    new_data[[col_name]][is.na(new_data[[col_name]])] <- my_birth_year + k
+  }
+  
+  if (is.character(new_data[[col_name]])) {
+    new_data[[col_name]][is.na(new_data[[col_name]])] <- paste0(my_first, "_", k)
+  }
+  
+  if (is.factor(new_data[[col_name]])) {
+    new_data[[col_name]] <- as.character(new_data[[col_name]])
+    new_data[[col_name]][is.na(new_data[[col_name]])] <- paste0(my_first, "_", k)
+  }
+}
+```
+
+### Displaying k Rows from the New Dataset
+
+```{r}
+if (k %% 2 == 0) {
+  head(new_data, k)
+} else {
+  tail(new_data, k)
+}
+```
+
+### Checking Remaining Missing Values
+
+```{r}
+sum(is.na(new_data))
+```
+
+```{r}
+anyNA(new_data)
+```
